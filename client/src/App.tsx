@@ -1,9 +1,9 @@
 import React from 'react';
-
+import SignUpComponent from "./pages/Signup/Signup";
 const App: React.FC = () => {
   return (
     <div className="App">
-      <h1>Hello World</h1>
+      <SignUpComponent/>
     </div>
   );
 }
