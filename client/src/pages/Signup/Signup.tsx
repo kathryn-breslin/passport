@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Signup } from "../../components/index";
+import { Link } from "react-router-dom";
 
 interface ISignUp {
   username: string;
@@ -36,6 +37,9 @@ class SignUpComponent extends Component {
 
     return (
       <div>
+        <div className="nav">
+          <Link to="/">Login</Link>
+        </div>
         <Signup
           username={username}
           password={password}
