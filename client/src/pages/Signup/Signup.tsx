@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Signup } from "../../components/index";
 import { Link } from "react-router-dom";
+import API from "../../utils/API";
 
 interface ISignUp {
   username: string;
@@ -21,7 +22,7 @@ class SignUpComponent extends Component {
     console.log({ [name]: value });
   };
 
-  handleFormSearch = (event: { preventDefault: () => void }) => {
+  handleFormSubmit = (event: { preventDefault: () => void }) => {
     const { username, password } = this.state;
 
     event.preventDefault();
@@ -30,6 +31,13 @@ class SignUpComponent extends Component {
     console.log("Username:" + username);
     console.log("Password:" + password);
 
+    API.saveUser({
+      username: username, 
+      password: password
+    })
+    .then(res => console.log("Saved User: " + res))
+    .catch(err => console.log(err));
+    
   };
 
   render() {
@@ -38,13 +46,13 @@ class SignUpComponent extends Component {
     return (
       <div>
         <div className="nav">
-          <Link to="/">Login</Link>
+          <Link to="/login">Login</Link>
         </div>
         <Signup
           username={username}
           password={password}
           handleInputChange={this.handleInputChange}
-          handleFormSearch={this.handleFormSearch}
+          handleFormSubmit={this.handleFormSubmit}
         />
       </div>
     )

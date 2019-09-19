@@ -4,14 +4,14 @@ interface IProps {
   username: string;
   password: string;
   handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  handleFormSearch: (event: React.MouseEvent<HTMLElement>) => void;
+  handleFormSubmit: (event: React.MouseEvent<HTMLElement>) => void;
 }
 
 const Signup = ({
   username,
   password,
   handleInputChange,
-  handleFormSearch
+  handleFormSubmit
 }: IProps) => {
   return (
     <form>
@@ -39,7 +39,7 @@ const Signup = ({
         />
       </div>
       <button 
-        onClick={handleFormSearch}
+        onClick={handleFormSubmit}
         type="submit" className="btn btn-primary" >Submit</button>
     </form>
   );
